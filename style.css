@@ -1,0 +1,237 @@
+/* Variáveis CSS para cores e espaçamento - facilita a manutenção e padronização */
+:root {
+    --primary-blue: #007bff;
+    --dark-blue: #0056b3;
+    --light-blue-bg: #e0f2f7;
+    --subtle-border-blue: #b3e0ff;
+    --input-border-blue: #a0d9f0;
+    --success-green: #28a745;
+    --dark-success-green: #218838;
+    --secondary-gray: #6c757d;
+    --dark-secondary-gray: #5a6268;
+    --error-red: #dc3545;
+    --text-color: #333;
+    --light-bg-textarea: #f8fcff;
+    --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px; /* Padronizado para um toque mais suave */
+    --padding-main: 35px;
+    --gap-buttons: 15px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--light-blue-bg);
+    margin: 0;
+    padding: 20px; /* Adicionado para garantir um respiro em telas muito pequenas */
+    box-sizing: border-box; /* Garante que padding e border não adicionem largura extra */
+    color: var(--text-color); /* Cor de texto padrão */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: var(--padding-main);
+    border-radius: 12px; /* Mantido um pouco maior para o container */
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    border: 1px solid var(--subtle-border-blue);
+    box-sizing: border-box; /* Garante que padding e border não adicionem largura extra */
+}
+
+h1 {
+    color: var(--dark-blue);
+    margin-bottom: 30px;
+    font-size: 2.2em; /* Um pouco maior para destaque profissional */
+    font-weight: 700; /* Mais negrito */
+    letter-spacing: -0.5px; /* Sutil ajuste para leitura */
+}
+
+.input-group {
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"] {
+    width: 100%; /* Simplificado, já que box-sizing: border-box cuida do padding */
+    padding: 12px;
+    border: 1px solid var(--input-border-blue);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="email"]:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo para o placeholder */
+.input-group input::placeholder {
+    color: #999;
+    opacity: 0.8;
+}
+
+button {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 17px;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; /* Adicionado opacity */
+    margin-top: 15px;
+    font-weight: 500;
+    display: inline-flex; /* Para alinhar ícones se forem adicionados */
+    align-items: center; /* Para alinhar ícones */
+    justify-content: center; /* Para alinhar ícones */
+    gap: 8px; /* Espaço entre texto e ícone */
+}
+
+button:hover:not(:disabled) { /* Apenas se o botão não estiver desabilitado */
+    background-color: var(--dark-blue);
+    transform: translateY(-2px); /* Um pouco mais de efeito no hover */
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6; /* Sutilmente mais opaco para indicar inatividade */
+    transform: none; /* Remove o efeito de hover quando desabilitado */
+}
+
+.message-output {
+    margin-top: 35px;
+    text-align: left;
+    border-top: 1px solid #e0f0f5;
+    padding-top: 25px;
+    position: relative; /* Essencial para posicionar o feedback de cópia */
+}
+
+.message-output label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+#birthdayMessage {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border-blue);
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 160px; /* Um pouco mais de espaço para a mensagem */
+    background-color: var(--light-bg-textarea);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: border-color 0.3s ease; /* Transição para o focus */
+}
+
+#birthdayMessage:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--gap-buttons);
+    margin-top: 15px;
+}
+
+.secondary-btn {
+    background-color: var(--secondary-gray);
+}
+
+.secondary-btn:hover:not(:disabled) {
+    background-color: var(--dark-secondary-gray);
+}
+
+.primary-btn {
+    background-color: var(--success-green);
+}
+
+.primary-btn:hover:not(:disabled) {
+    background-color: var(--dark-success-green);
+}
+
+/* Estilo para as mensagens de erro */
+.error-message {
+    color: var(--error-red);
+    font-size: 0.8em; /* Um pouco menor */
+    margin-top: 5px;
+    display: block;
+    height: 1.2em; /* Reserva o espaço para evitar que o layout "pule" */
+    text-align: left; /* Alinha o texto de erro à esquerda */
+    line-height: 1.2;
+}
+
+/* Estilo para o feedback de cópia */
+.copy-feedback {
+    position: absolute;
+    bottom: 5px; /* Ajuste a posição, por exemplo, mais próximo do textarea ou dos botões */
+    right: 5px; /* Ajuste a posição */
+    background-color: var(--success-green);
+    color: white;
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+    font-size: 0.85em;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out; /* Transição mais suave */
+    pointer-events: none; /* Não interfere com cliques */
+    z-index: 10; /* Garante que fique por cima de outros elementos */
+}
+
+.copy-feedback.show {
+    opacity: 1;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px; /* Reduz padding em telas menores */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Reduz o tamanho do título */
+    }
+
+    button {
+        padding: 12px 20px; /* Reduz o padding dos botões */
+        font-size: 16px;
+    }
+
+    .button-group {
+        flex-direction: column; /* Botões empilham em telas menores */
+        gap: 10px;
+        align-items: stretch; /* Estica os botões para preencher a largura */
+    }
+
+    .copy-feedback {
+        bottom: 10px;
+        right: 50%; /* Centraliza o feedback */
+        transform: translateX(50%);
+    }
+}
